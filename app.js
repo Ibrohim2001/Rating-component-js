@@ -5,6 +5,8 @@ const myArr = [...ratingItems];
 let amount = '';
 const imgUrl = './img/illustration-thank-you.svg';
 
+const popup = document.querySelector('.popup');
+
 myArr.map((item, clickedIndex) => {
   item.addEventListener('click', () => {
     myArr.forEach((otherItem, otherIndex) => {
@@ -18,6 +20,12 @@ myArr.map((item, clickedIndex) => {
   });
 });
 
+function loadPopup() {
+  if(amount === '') {
+    popup.className = 'popup active'
+  }
+}
+
 button.addEventListener('click', () => {
   if(amount !== '') {
     container.innerHTML = `
@@ -30,5 +38,8 @@ button.addEventListener('click', () => {
       <p>We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch</p>
     </div>
     `;
-  }  
+    
+  }  else {
+    loadPopup()
+  }
 });

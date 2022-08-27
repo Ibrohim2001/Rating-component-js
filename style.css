@@ -19,6 +19,49 @@ body {
   place-content: center;
   font-size: 16px;
   font-family: 'Overpass', sans-serif;
+  position: relative;
+}
+.popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 60px;
+  margin: 0 auto;
+  color: var(--orange-color);
+  background-color: var(--white-color);
+  border-radius: 5px;
+  position: absolute;
+  top: -10rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.popup.active {
+  top: 1rem;
+  animation: popup 2s linear forwards;
+}
+@keyframes popup {
+  0% {
+    top: -5rem;
+    opacity: 0;
+  }
+  25% {
+    top: -3rem;
+    opacity: 0.5;
+  } 
+  50% {
+    top: 1rem;
+    opacity: 1;
+  }
+  75% {
+    top: -1rem;
+    opacity: 1;
+  }
+  100% {
+    top: -10rem;
+    opacity: 0;
+  }
+
 }
 .container {
   width: 380px;
@@ -130,4 +173,11 @@ body {
   border-radius: 20px;
   font-size: 0.9rem;
   text-align: center;
+}
+@media (max-width: 425px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
 }
